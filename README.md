@@ -1,37 +1,34 @@
+<p align="center">
+  <img src="./assets/banner.svg" alt="Arabic Web Dev Tools Banner" width="100%">
+</p>
+
 # Arabic Web Dev Tools 🛠️ (أدوات المطور العربي)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Zero Dependencies](https://img.shields.io/badge/dependencies-none-blue.svg)](https://github.com/seotarek/arabic-web-dev-tools)
-[![RTL Supported](https://img.shields.io/badge/RTL-first-orange.svg)](https://github.com/seotarek/arabic-web-dev-tools)
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/Zero%20Dependencies-100%25-success.svg" alt="Zero Dependencies">
+  <img src="https://img.shields.io/badge/RTL-Native-orange.svg" alt="RTL Native">
+  <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg" alt="PRs Welcome">
+</p>
 
-مجموعة أدوات مفتوحة المصدر وخفيفة جداً بدون أي تبعيات خارجية (Zero-dependency) لمطوري الويب العرب، تعمل بالكامل داخل المتصفح (Client-side) وعلى Node.js.
-
-A lightweight, zero-dependency suite of web utility functions and interactive tools tailored specifically for developers building Arabic and RTL web applications.
-
----
-
-## 🚀 الأدوات المضمنة (Included Modules)
-
-1. **RTL CSS & Tailwind Converter:**
-   * تحويل كود CSS التقليدي إلى قواعد تدعم الاتجاه من اليمين لليسار (`margin-left` ⇄ `margin-right`, `left` ⇄ `right`).
-   * تحويل كلاسات Tailwind CSS تلقائياً (مثل `mr-4` إلى `ml-4` أو استخدام الخصائص المنطقية `ms-4`).
-
-2. **Tashkeel Stripper & Text Normalizer (معالج النصوص والتشكيل):**
-   * إزالة التشكيل والحركات والتطويل (كشيدة) فورياً وبأداء فائق.
-   * توحيد أشكال الألف والهمزات والتاء المربوطة لتسهيل الفهرسة ومحركات البحث.
-
-3. **Keyboard Layout Typo Fixer (تصحيح أخطاء الكيبورد المعكوس):**
-   * تصحيح النصوص المكتوبة بالخطأ بحروف إنجليزية وهي بالأساس بالعربية (مثل `hghlhl` ⇄ `الامام`).
-   * دعم التحويل العكسي الفوري.
-
-4. **Interactive Single-Page Playground (`public/index.html`):**
-   * واجهة ويب تفاعلية جاهزة للرفع على GitHub Pages أو Vercel تتيح للمستخدمين استخدام كافة الأدوات مباشرة.
+A zero-dependency suite of production-ready web utilities and standalone interactive single-page applications tailored for developers building modern Arabic and RTL web experiences.
 
 ---
 
-## 📦 التثبيت والاستخدام (Installation & Usage)
+## ⚡ الميزات والأدوات المضمنة (Features)
 
-### عبر Node.js / NPM:
+| الأداة | الوصف | مثال |
+| :--- | :--- | :--- |
+| **RTL CSS & Tailwind Flip** | عكس وتعديل خواص الاتجاهات في كود CSS تلقائياً | `margin-left: 10px` ➔ `margin-right: 10px` |
+| **Tashkeel Stripper** | تنظيف وحذف التشكيل والتنوين والمد (الكشيدة) بدقة فائقة | `مَرْحَبًا` ➔ `مرحبا` |
+| **Keyboard Typo Fixer** | استعادة الكلمات المكتوبة بالخطأ بحروف إنجليزية أثناء نسيان الكيبورد | `lvpfn` ➔ `مرحبا` |
+| **Normalizer** | توحيد الألفات والهمزات والتاء المربوطة لتسهيل الفهرسة ومحركات البحث | `إبراهيم، مدرسة` ➔ `ابراهيم، مدرسه` |
+
+---
+
+## 📦 التثبيت والاستخدام (Installation)
+
+### عبر Node.js / NPM
 
 ```bash
 npm install arabic-web-dev-tools
@@ -41,25 +38,26 @@ npm install arabic-web-dev-tools
 import { stripTashkeel, normalizeArabic, convertToRtlCss, fixKeyboardTypo } from 'arabic-web-dev-tools';
 
 // 1. إزالة التشكيل
-const clean = stripTashkeel("بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ");
-console.log(clean); // بسم الله الرحمن الرحيم
+console.log(stripTashkeel("بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ")); 
+// => "بسم الله الرحمن الرحيم"
 
-// 2. تصحيح خطأ لوحة المفاتيح
-const corrected = fixKeyboardTypo("lvpfn");
-console.log(corrected); // مرحبا
+// 2. تصحيح خطأ الكيبورد
+console.log(fixKeyboardTypo("lvpfn"));
+// => "مرحبا"
 
-// 3. تحويل كود CSS إلى RTL
-const rtlCss = convertToRtlCss(".card { margin-left: 20px; float: left; }");
-console.log(rtlCss); // .card { margin-right: 20px; float: right; }
+// 3. تحويل CSS إلى RTL
+console.log(convertToRtlCss(".sidebar { left: 0; padding-left: 15px; }"));
+// => ".sidebar { right: 0; padding-right: 15px; }"
 ```
 
-### الاستخدام المباشر في المتصفح:
-افتح ملف `public/index.html` في أي متصفح، أو استضفه كـ GitHub Pages للحصول على موقع أدوات سريع يجلب آلاف الزيارات لمحركات البحث.
+### واجهة الويب الجاهزة (Web UI)
+
+المشروع يتضمن واجهة مستخدم كاملة وتفاعلية داخل مجلد `public/index.html` مبنية بأحدث معايير التصميم (Tailwind CSS) لتعمل مباشرة على المتصفح بدون أي خادم.
 
 ---
 
-## 📄 الترخيص (License)
+## 📄 License
 
-مرخص تحت رخصة MIT. مفتوح للمساهمات والتطوير.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-المطور: [طارق محمد (Tarek Mohamed)](https://tarek-mohamed.me.eg/).
+Developed with care by [Tarek Mohamed](https://tarek-mohamed.me.eg/).
