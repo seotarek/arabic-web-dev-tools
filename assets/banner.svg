@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="auto">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="16" fill="url(#bg)"/>
+  <rect x="1" y="1" width="1198" height="358" rx="15" fill="none" stroke="#1e293b" stroke-width="2"/>
+  
+  <g transform="translate(100, 100)">
+    <rect width="160" height="160" rx="32" fill="#0f2b2b" stroke="#10b981" stroke-width="3"/>
+    <path d="M 50 110 L 80 50 L 110 110 M 60 95 L 100 95" stroke="#10b981" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="115" cy="55" r="7" fill="#06b6d4"/>
+  </g>
+
+  <text x="300" y="150" fill="url(#primaryGrad)" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="800">Arabic Web Dev Tools</text>
+  <text x="300" y="200" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="22">أدوات المطور العربي مفتوحة المصدر لمعالجة النصوص وواجهات RTL</text>
+  
+  <g transform="translate(300, 235)">
+    <rect width="140" height="36" rx="8" fill="#1e293b"/>
+    <text x="70" y="23" fill="#38bdf8" font-family="monospace" font-size="14" text-anchor="middle">RTL CSS Flip</text>
+
+    <rect x="155" width="160" height="36" rx="8" fill="#1e293b"/>
+    <text x="235" y="23" fill="#f59e0b" font-family="monospace" font-size="14" text-anchor="middle">Tashkeel Stripper</text>
+
+    <rect x="330" width="140" height="36" rx="8" fill="#1e293b"/>
+    <text x="400" y="23" fill="#10b981" font-family="monospace" font-size="14" text-anchor="middle">SEO Slugifier</text>
+
+    <rect x="485" width="120" height="36" rx="8" fill="#1e293b"/>
+    <text x="545" y="23" fill="#a855f7" font-family="monospace" font-size="14" text-anchor="middle">Tafqeet</text>
+  </g>
+</svg>
