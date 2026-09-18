@@ -1,0 +1,21 @@
+{
+  "name": "arabic-web-dev-tools",
+  "version": "1.0.0",
+  "description": "Zero-dependency web utilities for Arabic and RTL web development",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/index.test.js"
+  },
+  "keywords": [
+    "arabic",
+    "rtl",
+    "tailwind-rtl",
+    "tashkeel",
+    "css-flip",
+    "keyboard-arabic",
+    "arabic-nlp"
+  ],
+  "author": "Tarek Mohamed <contact@tarek-mohamed.me.eg>",
+  "license": "MIT"
+}
