@@ -1,20 +1,50 @@
 {
   "name": "arabic-web-dev-tools",
-  "version": "1.0.0",
-  "description": "Zero-dependency web utilities for Arabic and RTL web development",
+  "version": "1.1.0",
+  "description": "Zero-dependency suite of production-ready web utilities for modern Arabic, RTL, and BiDi web engineering",
   "main": "src/index.js",
+  "types": "types/index.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "types",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "node tests/index.test.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seotarek/arabic-web-dev-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seotarek/arabic-web-dev-tools/issues"
+  },
+  "homepage": "https://seotarek.github.io/arabic-web-dev-tools",
   "keywords": [
     "arabic",
     "rtl",
-    "tailwind-rtl",
+    "bidi",
+    "arabic-slug",
+    "arabic-seo",
     "tashkeel",
-    "css-flip",
+    "arabic-numbers",
+    "eastern-arabic-numerals",
+    "arabic-currency",
+    "css-logical-properties",
+    "tailwind-rtl",
     "keyboard-arabic",
-    "arabic-nlp"
+    "arabic-nlp",
+    "zero-dependency"
   ],
   "author": "Tarek Mohamed <contact@tarek-mohamed.me.eg>",
   "license": "MIT"

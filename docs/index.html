@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arabic Web Dev Tools | أدوات المطور العربي لهندسة الويب والـ RTL</title>
+  <meta name="description" content="مكتبة أدوات جافاسكربت مفتوحة المصدر بدون أي اعتمادات خارجية (Zero-dependency) مخصصة لتطوير وهندسة مواقع وتطبيقات الويب العربية ومعايير BiDi والـ CSS Logical Properties.">
+  
+  <!-- OpenGraph / Social -->
+  <meta property="og:title" content="Arabic Web Dev Tools | أدوات المطور العربي">
+  <meta property="og:description" content="أدوات هندسة وتطوير الويب العربي ومعايير RTL/BiDi دون أي اعتمادات خارجية">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seotarek.github.io/arabic-web-dev-tools/">
+  
+  <!-- Typography: IBM Plex Sans Arabic & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="tech-grid"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header-nav">
+      <a href="#" class="brand-wrapper">
+        <span class="brand-badge">v1.1.0</span>
+        <span class="brand-title">Arabic Web Dev Tools</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#labs" class="nav-link">المختبر التفاعلي</a>
+        <a href="#architecture" class="nav-link">المعمارية</a>
+        <a href="#install" class="nav-link">التثبيت البرمجي</a>
+        <a href="https://github.com/seotarek/arabic-web-dev-tools" target="_blank" rel="noopener noreferrer" class="github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-pill">
+        <span>⚡ 100% Zero Dependencies | Vanilla ES Modules | W3C CSS Logical Compliant</span>
+      </div>
+      
+      <h1 class="hero-title">
+        هندسة وتطوير الويب العربي الحديث<br>
+        <span class="hero-title-highlight">بدون أي تعقيد أو مكتبات خارجية</span>
+      </h1>
+      
+      <p class="hero-desc">
+        حزمة أدوات قياسية مخصصة لمهندسي البرمجيات ومصممي الواجهات في العالم العربي. تعالج تحديات النصوص ثنائية الاتجاه (BiDi)، وتوليد روابط السيو النظيفة، وتحويل أنماط CSS إلى الخصائص المنطقية الحديثة، واستعادة الأخطاء الطباعية فوراً.
+      </p>
+
+      <!-- Terminal Quick Install -->
+      <div class="terminal-block" id="install">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+          </div>
+          <span>BASH / TERMINAL</span>
+        </div>
+        <div class="terminal-body">
+          <span id="npmInstallText">npm install arabic-web-dev-tools</span>
+          <button class="copy-btn" data-copy-target="npmInstallText">نسخ الأمر</button>
+        </div>
+      </div>
+
+      <!-- Telemetry Cards -->
+      <div class="telemetry-bar">
+        <div class="telemetry-card">
+          <div class="telemetry-icon">📦</div>
+          <div class="telemetry-value">0 KB</div>
+          <div class="telemetry-label">صفر اعتمادات خارجية (Zero Deps)</div>
+        </div>
+
+        <div class="telemetry-card">
+          <div class="telemetry-icon">⚡</div>
+          <div class="telemetry-value">&lt; 1 ms</div>
+          <div class="telemetry-label">سرعة معالجة فورية داخل المعالج</div>
+        </div>
+
+        <div class="telemetry-card">
+          <div class="telemetry-icon">📐</div>
+          <div class="telemetry-value">W3C</div>
+          <div class="telemetry-label">معايير CSS Logical Properties</div>
+        </div>
+
+        <div class="telemetry-card">
+          <div class="telemetry-icon">🛡️</div>
+          <div class="telemetry-value">TypeScript</div>
+          <div class="telemetry-label">تعريفات أنواع كاملة مدمجة</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Labs -->
+    <section id="labs" class="infographic-section">
+      <div class="section-head">
+        <h2 class="section-title">المختبر الهندسي التفاعلي (Live Engineering Labs)</h2>
+        <p class="section-subtitle">جرّب الأدوات مباشرة من متصفحك وافحص الأثر الفوري على الكود والمدخلات</p>
+      </div>
+
+      <div class="labs-grid">
+        
+        <!-- Lab 1: Tashkeel & Harakat -->
+        <div class="lab-card">
+          <div class="lab-header">
+            <h3 class="lab-title">1. معالج التشكيل وتوحيد الحروف</h3>
+            <span class="lab-badge">Unicode NLP</span>
+          </div>
+          <p class="lab-desc">إزالة التشكيل، تنظيف علامات المصحف، إزالة الكشيدة وتوحيد الهمزات والتاء المربوطة والياء.</p>
+          
+          <textarea id="tashkeelInput" class="lab-textarea" rows="3" placeholder="اكتب نصاً مشكولاً (مثال: مَرْحَبًا بِكُمْ فِي هَنْدَسَةِ الْوِيبِ...)">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ - مَرْحَبًا بِكُمْ فِي عَالَمِ الْبَرْمَجَةِ</textarea>
+          
+          <div class="telemetry-meter">
+            <div id="tashkeelMeter" class="meter-fill"></div>
+          </div>
+          <div id="tashkeelStats" class="lab-desc" style="font-size: 0.75rem; font-family: var(--font-mono); margin-bottom: 0.75rem;">...</div>
+
+          <div class="lab-actions">
+            <button id="btnStripTashkeel" class="action-btn">حذف التشكيل</button>
+            <button id="btnRemoveTatweel" class="action-btn action-btn-outline">حذف الكشيدة</button>
+            <button id="btnNormalizeArabic" class="action-btn action-btn-outline">توحيد الحروف</button>
+          </div>
+        </div>
+
+        <!-- Lab 2: CSS Logical Properties -->
+        <div class="lab-card">
+          <div class="lab-header">
+            <h3 class="lab-title">2. تحويل CSS إلى الخصائص المنطقية</h3>
+            <span class="lab-badge">W3C Logical</span>
+          </div>
+          <p class="lab-desc">تحويل التنسيقات الفيزيائية القديمة إلى معايير <code>inline-start</code> المنطقية أو عكسها إلى RTL.</p>
+
+          <textarea id="cssInput" class="lab-textarea" rows="3" dir="ltr" style="font-family: var(--font-mono); font-size: 0.8rem;">.card {
+  margin-left: 20px;
+  padding-right: 12px;
+  float: left;
+  text-align: left;
+}</textarea>
+
+          <div style="display: flex; gap: 1rem; margin-bottom: 0.75rem; font-size: 0.8125rem;">
+            <label style="display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+              <input type="radio" name="cssMode" value="logical" checked>
+              <span>CSS Logical (حديث)</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+              <input type="radio" name="cssMode" value="rtl">
+              <span>RTL Flip (تقليدي)</span>
+            </label>
+          </div>
+
+          <textarea id="cssOutput" readonly class="lab-textarea" rows="3" dir="ltr" style="font-family: var(--font-mono); font-size: 0.8rem; color: #34d399;"></textarea>
+
+          <div class="lab-actions">
+            <button class="action-btn" data-copy-target="cssOutput">نسخ الكود الناتج</button>
+          </div>
+        </div>
+
+        <!-- Lab 3: SERP & Arabic SEO Slug -->
+        <div class="lab-card" style="grid-column: span 1;">
+          <div class="lab-header">
+            <h3 class="lab-title">3. محاكي السيو والروابط العربية</h3>
+            <span class="lab-badge">SEO Engine</span>
+          </div>
+          <p class="lab-desc">توليد روابط نظيفة وقص الوصف لمحركات البحث عند حدود الكلمات دون كسر المعنى.</p>
+
+          <input id="serpTitleInput" type="text" class="lab-input" value="أفضل 10 ممارسات في هندسة البرمجيات لعام 2026! (شامل ومجاني)">
+          <textarea id="serpDescInput" class="lab-textarea" rows="2" placeholder="اكتب وصف المقال هنا...">دليل هندسي متكامل ومفصل يشرح للمطورين كيفية بناء تطبيقات ويب فائقة الأداء متوافقة تماماً مع معايير اللغة العربية ومحركات البحث في جوجل.</textarea>
+
+          <div style="display: flex; gap: 1rem; margin-bottom: 0.5rem; font-size: 0.75rem;">
+            <label style="display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+              <input type="checkbox" id="slugStopWords">
+              <span>حذف حروف الجر والكلمات الشائعة</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+              <input type="checkbox" id="slugNormalize">
+              <span>توحيد الهمزات</span>
+            </label>
+          </div>
+
+          <!-- Google SERP Card -->
+          <div class="serp-card">
+            <div class="serp-url" id="serpUrlPreview">https://example.com/blog/...</div>
+            <div class="serp-title" id="serpTitlePreview">العنوان في جوجل</div>
+            <div class="serp-snippet" id="serpSnippetPreview">الوصف...</div>
+          </div>
+
+          <div class="telemetry-meter">
+            <div id="descCharMeter" class="meter-fill"></div>
+          </div>
+          <div id="descStatsText" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem;">...</div>
+
+          <div class="lab-output" style="min-height: auto;">
+            <span id="slugResultText">...</span>
+            <button class="copy-btn" data-copy-target="slugResultText">نسخ Slug</button>
+          </div>
+        </div>
+
+        <!-- Lab 4: Eastern Numerals & Currency -->
+        <div class="lab-card">
+          <div class="lab-header">
+            <h3 class="lab-title">4. الأرقام المشرقية والعملات</h3>
+            <span class="lab-badge">Finance & Locales</span>
+          </div>
+          <p class="lab-desc">تحويل الأرقام بين النسق الغربي (0-9) والنسق المشرقي (٠-٩) وتنسيق العملات العربية بدقة.</p>
+
+          <input id="numberInput" type="text" class="lab-input" value="1250000.75" placeholder="أدخل رقماً...">
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <select id="currencySelect" class="lab-input" style="margin-bottom: 0;">
+              <option value="SAR">ريال سعودي (SAR)</option>
+              <option value="EGP">جنيه مصري (EGP)</option>
+              <option value="AED">درهم إماراتي (AED)</option>
+              <option value="KWD">دينار كويتي (KWD)</option>
+              <option value="QAR">ريال قطري (QAR)</option>
+              <option value="USD">دولار أمريكي (USD)</option>
+            </select>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.8125rem;">
+              <label style="display: flex; align-items: center; gap: 0.25rem; cursor: pointer;">
+                <input type="radio" name="digitSystem" id="useEasternDigitsRadio" checked>
+                <span>٠-٩</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.25rem; cursor: pointer;">
+                <input type="radio" name="digitSystem" id="useWesternDigitsRadio">
+                <span>0-9</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="lab-output">
+            <span>الأرقام المشرقية:</span>
+            <strong id="easternDigitsDisplay" style="color: #38bdf8;">...</strong>
+          </div>
+
+          <div class="lab-output">
+            <span>تنسيق العملة:</span>
+            <strong id="formattedCurrencyDisplay" style="color: #34d399;">...</strong>
+          </div>
+        </div>
+
+        <!-- Lab 5: BiDi Isolation Sandbox -->
+        <div class="lab-card">
+          <div class="lab-header">
+            <h3 class="lab-title">5. عزل النصوص ثنائية الاتجاه (BiDi)</h3>
+            <span class="lab-badge">BiDi Stability</span>
+          </div>
+          <p class="lab-desc">حل مشكلة انعكاس علامات الترقيم في نهاية الجمل العربية التي تحتوي على كلمات أو روابط لاتينية.</p>
+
+          <input id="bidiInput" type="text" class="lab-input" value="رابط المتجر الرسمي هو https://store.example.com!">
+
+          <div style="margin-bottom: 0.75rem;">
+            <div style="font-size: 0.75rem; color: #ef4444; margin-bottom: 0.25rem;">العرض التلقائي المعطوب (بدون معالجة):</div>
+            <div id="bidiBrokenBox" class="lab-output" style="color: #ef4444; font-family: var(--font-arabic); direction: rtl;">...</div>
+          </div>
+
+          <div>
+            <div style="font-size: 0.75rem; color: #34d399; margin-bottom: 0.25rem;">العرض المعالج بعزل BiDi الآمن (RLM / Isolates):</div>
+            <div id="bidiSanitizedBox" class="lab-output" style="color: #34d399; font-family: var(--font-arabic); direction: rtl;">...</div>
+          </div>
+
+          <div class="lab-actions">
+            <button class="action-btn" data-copy-target="bidiSanitizedBox">نسخ النص المعالج</button>
+          </div>
+        </div>
+
+        <!-- Lab 6: Keyboard Typo Fixer -->
+        <div class="lab-card">
+          <div class="lab-header">
+            <h3 class="lab-title">6. تصحيح خطأ لغة لوحة المفاتيح</h3>
+            <span class="lab-badge">Keyboard Layout</span>
+          </div>
+          <p class="lab-desc">استعادة النصوص المكتوبة بالخطأ أثناء نسيان لغة الإدخال الإنجليزية، مع دعم أزرار Shift والـ Ligatures.</p>
+
+          <input id="keyboardInput" type="text" class="lab-input" value="lvpfh f;l td ugk hgfvl[m" placeholder="اكتب بحروف إنجليزية بالخطأ (مثل lvpfh)...">
+
+          <div class="lab-output" style="min-height: 60px;">
+            <span id="keyboardOutput" style="font-size: 1.1rem; color: #34d399; font-weight: 600;">...</span>
+          </div>
+
+          <div class="lab-actions">
+            <button id="btnInvertKeyboard" class="action-btn action-btn-outline">تبديل الاتجاه</button>
+            <button class="action-btn" data-copy-target="keyboardOutput">نسخ النص المصحح</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Architecture & Developer Community Insights -->
+    <section id="architecture" class="infographic-section">
+      <div class="section-head">
+        <h2 class="section-title">لماذا تم بناء هذه الحزمة؟ (Community Insights)</h2>
+        <p class="section-subtitle">حلول هندسية نابعة من نقاشات وتجارب مهندسي الواجهات في مجتمعات المطورين العرب</p>
+      </div>
+
+      <div class="infographic-radar">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div>
+            <h4 style="color: var(--accent-emerald); font-weight: 700; margin-bottom: 0.5rem;">مشكلة التبعيات المتضخمة</h4>
+            <p style="color: var(--text-muted); font-size: 0.875rem;">
+              معظم المكتبات المتاحة تتطلب تثبيت حزم ضخمة تستنزف حزمة البناء. تم تصميم هذه المكتبة لتعمل بمفردها بنسبة 100% كـ ES Modules أصلية دون أي حزمة خارجية.
+            </p>
+          </div>
+
+          <div>
+            <h4 style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem;">الانتقال إلى CSS Logical Properties</h4>
+            <p style="color: var(--text-muted); font-size: 0.875rem;">
+              استبدال النمط القديم لعكس ملفات الـ CSS بقواعد W3C الحديثة (مثل <code>margin-inline-start</code>) مما يتيح للموقع العمل بكود واحد يدعم العربية والإنجليزية في آن واحد.
+            </p>
+          </div>
+
+          <div>
+            <h4 style="color: var(--accent-indigo); font-weight: 700; margin-bottom: 0.5rem;">محاذاة الترقيم وعزل الـ BiDi</h4>
+            <p style="color: var(--text-muted); font-size: 0.875rem;">
+              معالجة الخلل الشهير حيث تقفز النقطة أو علامة التعجب إلى أول السطر عندما ينتهي السطر العربي برابط أو كلمة إنجليزية، باستخدام علامات RLM والـ Directional Isolates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p style="margin-bottom: 0.5rem;">
+        مشروع مفتوح المصدر مرخص برخصة <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a>.
+      </p>
+      <p>
+        تم التطوير بواسطة المهندس <a href="https://tarek-mohamed.me.eg/" target="_blank" rel="noopener">طارق محمد (Tarek Mohamed)</a> | 
+        المستودع على <a href="https://github.com/seotarek/arabic-web-dev-tools" target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </footer>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
