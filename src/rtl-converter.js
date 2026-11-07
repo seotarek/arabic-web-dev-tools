@@ -1,8 +1,8 @@
 export function convertToRtlCss(cssText) {
   if (!cssText) return '';
   let out = cssText;
-  
-  // Swap properties using a temporary placeholder
+
+  // Swap properties using temporary placeholders to prevent double-replacement
   const replacements = [
     [/\bmargin-left\b/g, '__TMP_ML__'],
     [/\bmargin-right\b/g, 'margin-left'],
@@ -12,15 +12,17 @@ export function convertToRtlCss(cssText) {
     [/\bpadding-right\b/g, 'padding-left'],
     [/__TMP_PL__/g, 'padding-right'],
 
-    [/\bleft\s*:/g, '__TMP_L__:'],
-    [/\bright\s*:/g, 'left:'],
+    [/(?<!-)\bleft\s*:/g, '__TMP_L__:'],
+    [/(?<!-)\bright\s*:/g, 'left:'],
     [/__TMP_L__:/g, 'right:'],
 
-    [/\btext-align\s*:\s*left\b/g, 'text-align: right'],
+    [/\btext-align\s*:\s*left\b/g, '__TMP_TAL__'],
     [/\btext-align\s*:\s*right\b/g, 'text-align: left'],
+    [/__TMP_TAL__/g, 'text-align: right'],
 
-    [/\bfloat\s*:\s*left\b/g, 'float: right'],
+    [/\bfloat\s*:\s*left\b/g, '__TMP_FL__'],
     [/\bfloat\s*:\s*right\b/g, 'float: left'],
+    [/__TMP_FL__/g, 'float: right'],
   ];
 
   for (const [pattern, repl] of replacements) {

@@ -26,7 +26,7 @@
       <!-- Keyboard Fixer -->
       <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
         <h2 class="text-xl font-semibold mb-3 text-cyan-300">2. تصحيح لغة لوحة المفاتيح المعكوسة</h2>
-        <textarea id="kbInput" class="w-full h-28 bg-slate-950 p-3 rounded border border-slate-700 text-sm mb-3 focus:outline-none focus:border-cyan-400" placeholder="اكتب نصاً كُتب بالخطأ بحروف إنجليزية مثل lvpfn..."></textarea>
+        <textarea id="kbInput" class="w-full h-28 bg-slate-950 p-3 rounded border border-slate-700 text-sm mb-3 focus:outline-none focus:border-cyan-400" placeholder="اكتب نصاً كُتب بالخطأ بحروف إنجليزية مثل lvpfh..."></textarea>
         <button onclick="handleKeyboard()" class="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold py-2 px-4 rounded transition">تصحيح لوحة المفاتيح</button>
       </div>
 
@@ -39,6 +39,30 @@
         </div>
         <button onclick="handleRtl()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2 px-4 rounded transition">تحويل إلى RTL</button>
       </div>
+
+      <!-- Arabic SEO Slug Generator -->
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 md:col-span-2">
+        <h2 class="text-xl font-semibold mb-3 text-sky-300">4. توليد روابط السيو النظيفة (Arabic SEO Slug Generator)</h2>
+        <div class="grid md:grid-cols-2 gap-4 mb-3">
+          <div>
+            <textarea id="slugInput" class="w-full h-28 bg-slate-950 p-3 rounded border border-slate-700 text-sm mb-2 focus:outline-none focus:border-sky-400" placeholder="اكتب عنوان المقال أو الصفحة (مثال: أفضل 10 ممارسات في هندسة البرمجيات لعام 2026!)..."></textarea>
+            <div class="flex flex-wrap gap-4 text-xs text-slate-400">
+              <label class="flex items-center gap-1 cursor-pointer">
+                <input type="checkbox" id="slugStopwords" class="rounded bg-slate-900 border-slate-700 text-sky-500 focus:ring-0">
+                حذف حروف الجر والكلمات الشائعة
+              </label>
+              <label class="flex items-center gap-1 cursor-pointer">
+                <input type="checkbox" id="slugNormalize" class="rounded bg-slate-900 border-slate-700 text-sky-500 focus:ring-0">
+                توحيد الهمزات والياء (أ/إ -> ا)
+              </label>
+            </div>
+          </div>
+          <div>
+            <textarea id="slugOutput" readonly class="w-full h-28 bg-slate-950 p-3 rounded border border-slate-700 text-sm font-mono text-left text-sky-400" placeholder="الرابط النظيف (Slug)..."></textarea>
+          </div>
+        </div>
+        <button onclick="handleSlug()" class="w-full bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold py-2 px-4 rounded transition">توليد الرابط النظيف (Generate Slug)</button>
+      </div>
     </div>
 
     <footer class="mt-12 text-center text-slate-500 text-sm">
@@ -47,7 +71,7 @@
   </div>
 
   <script type="module">
-    import { stripTashkeel, fixKeyboardTypo, convertToRtlCss } from '../src/index.js';
+    import { stripTashkeel, fixKeyboardTypo, convertToRtlCss, generateArabicSlug } from '../src/index.js';
     window.handleTashkeel = () => {
       const el = document.getElementById('tashkeelInput');
       el.value = stripTashkeel(el.value);
@@ -59,6 +83,12 @@
     window.handleRtl = () => {
       const inp = document.getElementById('cssInput').value;
       document.getElementById('cssOutput').value = convertToRtlCss(inp);
+    };
+    window.handleSlug = () => {
+      const inp = document.getElementById('slugInput').value;
+      const removeStopWords = document.getElementById('slugStopwords').checked;
+      const normalize = document.getElementById('slugNormalize').checked;
+      document.getElementById('slugOutput').value = generateArabicSlug(inp, { removeStopWords, normalize });
     };
   </script>
 </body>

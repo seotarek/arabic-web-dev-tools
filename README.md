@@ -19,9 +19,11 @@ A zero-dependency suite of production-ready web utilities and standalone interac
 
 | الأداة | الوصف | مثال |
 | :--- | :--- | :--- |
+| **Arabic SEO Slug Generator** | توليد روابط URLs نظيفة ومطابقة لمعايير السيو بدون رموز معطوبة | `دليل السيو 2026!` ➔ `دليل-السيو-2026` |
+| **Smart Meta Truncator** | قص نصوص الوصف والعناوين لنتائج جوجل بذكاء عند حدود الكلمات | `دليل مفصل لبناء...` |
 | **RTL CSS & Tailwind Flip** | عكس وتعديل خواص الاتجاهات في كود CSS تلقائياً | `margin-left: 10px` ➔ `margin-right: 10px` |
 | **Tashkeel Stripper** | تنظيف وحذف التشكيل والتنوين والمد (الكشيدة) بدقة فائقة | `مَرْحَبًا` ➔ `مرحبا` |
-| **Keyboard Typo Fixer** | استعادة الكلمات المكتوبة بالخطأ بحروف إنجليزية أثناء نسيان الكيبورد | `lvpfn` ➔ `مرحبا` |
+| **Keyboard Typo Fixer** | استعادة الكلمات المكتوبة بالخطأ بحروف إنجليزية أثناء نسيان الكيبورد | `lvpfh` ➔ `مرحبا` |
 | **Normalizer** | توحيد الألفات والهمزات والتاء المربوطة لتسهيل الفهرسة ومحركات البحث | `إبراهيم، مدرسة` ➔ `ابراهيم، مدرسه` |
 
 ---
@@ -35,19 +37,38 @@ npm install arabic-web-dev-tools
 ```
 
 ```javascript
-import { stripTashkeel, normalizeArabic, convertToRtlCss, fixKeyboardTypo } from 'arabic-web-dev-tools';
+import {
+  stripTashkeel,
+  normalizeArabic,
+  convertToRtlCss,
+  fixKeyboardTypo,
+  generateArabicSlug,
+  truncateArabicMeta,
+} from 'arabic-web-dev-tools';
 
-// 1. إزالة التشكيل
+// 1. توليد رابط سيو نظيف
+console.log(generateArabicSlug("أفضل 10 ممارسات في هندسة البرمجيات لعام 2026!"));
+// => "أفضل-10-ممارسات-في-هندسة-البرمجيات-لعام-2026"
+
+// مع حذف حروف الجر وتوحيد الحروف
+console.log(generateArabicSlug("كيف تبدأ في تعلم البرمجة من الصفر", { removeStopWords: true, normalize: true }));
+// => "تبدا-تعلم-البرمجه-الصفر"
+
+// 2. قص نصوص الوصف لمحركات البحث عند حدود الكلمات
+console.log(truncateArabicMeta("دليل مفصل يشرح أفضل الممارسات لبناء تطبيقات سريعة", 35));
+// => "دليل مفصل يشرح أفضل الممارسات..."
+
+// 3. إزالة التشكيل
 console.log(stripTashkeel("بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ")); 
 // => "بسم الله الرحمن الرحيم"
 
-// 2. تصحيح خطأ الكيبورد
-console.log(fixKeyboardTypo("lvpfn"));
+// 4. تصحيح خطأ الكيبورد
+console.log(fixKeyboardTypo("lvpfh"));
 // => "مرحبا"
 
-// 3. تحويل CSS إلى RTL
-console.log(convertToRtlCss(".sidebar { left: 0; padding-left: 15px; }"));
-// => ".sidebar { right: 0; padding-right: 15px; }"
+// 5. تحويل CSS إلى RTL
+console.log(convertToRtlCss(".sidebar { margin-left: 15px; float: left; }"));
+// => ".sidebar { margin-right: 15px; float: right; }"
 ```
 
 ### واجهة الويب الجاهزة (Web UI)
